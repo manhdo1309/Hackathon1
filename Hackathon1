@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+struct toDo
+{
+	int id;
+	char startDate[50];
+	char endDate[50];
+	char content[100];
+	bool status;
+};
+struct toDo todoList[100];
+int main()
+{
+	struct toDo todoList1 = {1, "01/12/2023", "02/12/2023", "Dam cuoi em ho", 1};
+	struct toDo todoList2 = {2, "09/12/2023", "10/12/2023", "Sua tui giup me", 0};
+	struct toDo todoList[100] = {todoList1, todoList2};
+	int currentsize = 2;
+	do
+	{
+		printf("************************MENU**************************\n");
+		printf("1. In toan bo danh sach todo\n");
+		printf("2. Them moi todo vao todoList\n");
+		printf("3. Cap nhat thong tin cua todo\n");
+		printf("4. Xoa mot todo\n");
+		printf("5. Sap xep todo theo huong tang dan\n");
+		printf("6. Tim kiem theo thong tin cua todo\n");
+		printf("7. In ra toan bo todo theo status\n");
+		printf("8. Thoat\n");
+		printf("Lua chon cua ban: ");
+		int choice;
+		printf("Lua chon cua ban la: ");
+		scanf("%d", &choice);
+		switch(choice)
+		{
+			case 1:
+				for(int i = 0; i < currentsize; i++)
+				{
+					bool done = 1;
+					bool undone = 0;
+					printf("Id: %d        Ngay bat dau: %s        Ngay ket thuc: %s        Noi dung: %s        Trang thai: %d\n", todoList[i].id, todoList[i].startDate, todoList[i].endDate, todoList[i].content, todoList[i].status);
+					printf("--------------\n");
+				}
+				break;
+			case 2:
+				struct toDo newTodo;
+				printf("Vui long nhap thong tin todo moi: \n");
+				printf("Nhap vao Id: ");
+				scanf("%d", &newTodo.id);
+				fflush(stdin);
+				printf("Nhap vao ngay bat dau: ");
+				gets(newTodo.startDate);
+				printf("Nhap vao ngay ket thuc: ");
+				gets(newTodo.endDate);
+				printf("Nhap vao noi dung: ");
+				gets(newTodo.content);
+				printf("Nhap vao trang thai: ");
+				scanf("%d", &newTodo.status);
+				todoList[currentsize] = newTodo;
+				currentsize++;
+				break;
+			case 3:
+					
+			
+		}
+	}while("Lua chon cua ban: ");
+}
